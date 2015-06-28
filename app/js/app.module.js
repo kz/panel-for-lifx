@@ -1,26 +1,28 @@
 angular.module('app', [
   'ui.router',
   'ngMaterial'
-]).config(function ($urlRouterProvider, $stateProvider) {
+])
 
-  $urlRouterProvider.otherwise('/index');
+  .config(function ($urlRouterProvider, $stateProvider) {
 
-  $stateProvider
-    .state('index', {
-      url: '/index',
-      views: {
-        screen: {
-          templateUrl: '/views/index.html'
+    $urlRouterProvider.otherwise('/index');
+
+    $stateProvider
+      .state('index', {
+        url: '/index',
+        views: {
+          screen: {
+            templateUrl: '/views/index.html'
+          }
         }
-      }
-    })
-    .state('dashboard', {
-      url: '/dashboard',
-      views: {
-        partial: {
-          templateUrl: '/views/partials/dashboard.html'
+      })
+      .state('dashboard', {
+        url: '/dashboard',
+        views: {
+          partial: {
+            templateUrl: '/views/partials/dashboard.html'
+          }
         }
-      }
-    });
+      });
 
-});
+  });

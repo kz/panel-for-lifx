@@ -11,13 +11,26 @@
 
 <body>
 
-<div ui-view="screen">
-  <md-content class="screen">
-    <!-- TODO: Navigation Bar -->
-    fghjfg
-    <a ui-sref="dashboard">Show Dashboard</a>
-    <div ui-view="partial" class="tab"></div>
-  </md-content>
+<div ui-view="screen" ng-controller="IndexController as index">
+  <div layout="row">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>Panel for LIFX</span>
+        <!-- fill up the space between left and right area -->
+        <span flex></span>
+        <md-button>
+          <a ui-sref="dashboard">Dashboard</a>
+        </md-button>
+      </div>
+    </md-toolbar>
+  </div>
+
+  <div layout="row">
+    <md-content class="screen">
+      <div ui-view="partial"></div>
+    </md-content>
+  </div>
+
 </div>
 
 <!-- js libs -->
