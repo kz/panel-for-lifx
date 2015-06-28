@@ -1,6 +1,6 @@
 {
   "name": "Panel for LIFX",
-  "description": "Unofficial app to control LIFX smart bulbs.",
+  "description": "Control your LIFX smart bulbs with ease using Panel for LIFX.",
   "version": "1.0.0",
   "manifest_version": 2,
   "app": {
