@@ -1,0 +1,11 @@
+{
+  "name": "Panel for LIFX",
+  "description": "Unofficial app to control LIFX smart bulbs.",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  }
+}
