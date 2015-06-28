@@ -12,7 +12,8 @@
 <body>
 
 <div ui-view="screen" ng-controller="IndexController as index">
-  <div layout="row">
+
+  <div layout="row" flex>
     <md-toolbar>
       <div class="md-toolbar-tools">
         <span>Panel for LIFX</span>
@@ -25,12 +26,17 @@
     </md-toolbar>
   </div>
 
-  <div layout="row">
-    <md-content class="screen">
+  <div flex layout="row">
+
+    <!-- Container #3 Left -->
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-sidenav-left md-whiteframe-z2">
+      wert
+    </md-sidenav>
+
+    <md-content class="screen" flex>
       <div ui-view="partial"></div>
     </md-content>
   </div>
-
 </div>
 
 <!-- js libs -->
@@ -44,6 +50,7 @@
 <script type="text/javascript" src="../js/env.js"></script>
 <script type="text/javascript" src="../js/build.js"></script>
 <script type="text/javascript" src="../js/app.module.js"></script>
+<script type="text/javascript" src="../js/controllers/index.controller.js"></script>
 <script type="text/javascript" src="../js/controllers/dashboard.controller.js"></script>
 <script type="text/javascript" src="../js/mocks.js"></script>
 </body>
