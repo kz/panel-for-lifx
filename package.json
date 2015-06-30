@@ -1,13 +1,13 @@
 {
-  "name": "Chromestrap",
-  "version": "0.0.2",
+  "name": "Panel for LIFX",
+  "version": "1.0.0",
   "description": "",
   "main": "src/background.js",
-  "author": "Mikhail Yurasov <me@yurasov.me>",
-  "license": "WTFPL",
+  "author": "Kelvin Zhang <me@iamkelv.in>",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/myurasov/chromestrap"
+    "url": "https://github.com/kz/panel-for-lifx"
   },
   "devDependencies": {
     "browser-sync": "^2.6.11",
