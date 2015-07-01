@@ -16,6 +16,14 @@ angular.module('app', [
           }
         }
       })
+      .state('auth', {
+        url: '/auth',
+        views: {
+          partial: {
+            templateUrl: '/views/partials/auth.html'
+          }
+        }
+      })
       .state('dashboard', {
         url: '/dashboard',
         views: {
@@ -24,5 +32,4 @@ angular.module('app', [
           }
         }
       });
-
   });

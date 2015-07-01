@@ -8,7 +8,8 @@ ApiService.$inject = [];
 function ApiService() {
   var service = {
     setKey: setKey,
-    getKey: getKey
+    getKey: getKey,
+    isSet: isSet
   };
 
   return service;
@@ -16,12 +17,21 @@ function ApiService() {
   ////////////////
 
   function setKey(key) {
-    chrome.storage.local.set({'apiKey': key});
+    chrome.storage.local.set({'apiKey': key}, function () {
+
+    });
   }
 
   function getKey() {
-    var apiKey = chrome.storage.local.get('apiKey');
-    return apiKey;
+    var apiKey = chrome.storage.local.get('apiKey', function () {
+      return apiKey;
+    });
+  }
+
+  function isSet() {
+    var apiKey = chrome.storage.local.get('apiKey', function () {
+      return apiKey !== null;
+    });
   }
 
 

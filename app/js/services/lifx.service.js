@@ -1,12 +1,12 @@
 angular
   .module('app')
-  .constant('ENDPOINT_URI', 'https://api.lifx.com/v1beta1/')
-  .factory('LifxFactory', LifxFactory);
+  .constant('ENDPOINT_URI', 'https://api.lifx.com/v1beta1')
+  .factory('LifxService', LifxService);
 
-LifxFactory.$inject = ['$http', 'ApiService', 'ENDPOINT_URI'];
+LifxService.$inject = ['$http', 'ApiService', 'ENDPOINT_URI'];
 
 /* @ngInject */
-function LifxFactory($http, ApiService, ENDPOINT_URI) {
+function LifxService($http, ApiService, ENDPOINT_URI) {
   return {
     getLights: getLights,
     toggleLights: toggleLights
@@ -14,17 +14,17 @@ function LifxFactory($http, ApiService, ENDPOINT_URI) {
 
   ////////////////
 
-  var apiKey = ApiService.getKey();
-  $http.defaults.headers.common.Authorization = 'Basic ' + apiKey;
-
+  //var apiKey = ApiService.getKey();
   function getLights(selector) {
     selector = typeof selector !== 'undefined' ? selector : 'all';
     $http.get(ENDPOINT_URI + '/lights/' + selector);
   }
 
   function toggleLights(selector) {
+    var apiKey = '';
+    $http.defaults.headers.common.Authorization = 'Bearer ' + apiKey;
     selector = typeof selector !== 'undefined' ? selector : 'all';
-    $http.get(ENDPOINT_URI + '/lights/' + selector + '/toggle');
+    $http.post(ENDPOINT_URI + '/lights/' + selector + '/toggle');
   }
 
 }

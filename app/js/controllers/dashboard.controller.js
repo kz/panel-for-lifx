@@ -2,22 +2,16 @@ angular
   .module('app')
   .controller('DashboardController', DashboardController);
 
-DashboardController.$inject = ['$scope', '$window'];
+DashboardController.$inject = ['$scope', '$window', 'LifxService'];
 
 /* @ngInject */
-function DashboardController($scope, $window) {
+function DashboardController($scope, $window, LifxService) {
   /* jshint validthis: true */
   var vm = this;
 
-  vm.activate = activate;
+  vm.toggleLights = LifxService.toggleLights;
   vm.title = 'DashboardController';
 
-  activate();
-
   ////////////////
-
-  function activate() {
-  }
-
 
 }
