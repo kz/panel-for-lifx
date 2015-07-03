@@ -1,3 +1,22 @@
 <div ng-controller="AuthController as auth">
-  AUTH
+  <md-card>
+    <md-card-content>
+      <h2 class="md-title">Login</h2>
+        <p>
+          To access your lights over the LIFX Cloud, we need your access token. You can generate one <a href="#" ng-click="auth.openCloud();">here</a> to paste below. <br/>
+          <small class="md-caption">Your access token is stored locally on your computer and not transmitted anywhere else. </small>
+        </p>
+      <form name="login">
+        <md-input-container>
+          <label for="token">Personal Access Token</label>
+          <input id="token" required name="token" ng-model="auth.token" type="text" />
+          <div ng-messages="login.token.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-button md-no-ink class="md-primary" ng-click="auth.isLoading = true;" ng-if="!auth.isLoading">Log In</md-button>
+        <md-progress-circular md-mode="indeterminate" md-diameter="24" ng-if="auth.isLoading"></md-progress-circular>
+      </form>
+    </md-card-content>
+  </md-card>
 </div>

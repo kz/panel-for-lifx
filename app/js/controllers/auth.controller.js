@@ -9,8 +9,13 @@ function AuthController($scope, $window, LifxService) {
   /* jshint validthis: true */
   var vm = this;
 
-  vm.title = 'AuthController';
+  vm.openCloud = openCloud;
+  vm.isLoading = false;
 
   ////////////////
+
+  function openCloud() {
+    window.open('https://cloud.lifx.com/settings');
+  }
 
 }
