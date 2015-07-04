@@ -1,5 +1,5 @@
 {
-  "name": "Panel for LIFX",
+  "name": "panel-for-lifx",
   "version": "1.0.0",
   "description": "",
   "main": "src/background.js",
