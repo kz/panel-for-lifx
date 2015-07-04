@@ -9,12 +9,12 @@
       <form name="login">
         <md-input-container>
           <label for="token">Personal Access Token</label>
-          <input id="token" required name="token" ng-model="auth.token" type="text" />
+          <input id="token" required name="token" ng-model="token" type="text" />
           <div ng-messages="login.token.$error">
-            <div ng-message="required">This is required.</div>
+            <div ng-message="required" ng-if="auth.isRequired">This is required.</div>
           </div>
         </md-input-container>
-        <md-button md-no-ink class="md-primary" ng-click="auth.isLoading = true;" ng-if="!auth.isLoading">Log In</md-button>
+        <md-button md-no-ink class="md-primary" ng-click="auth.login(token);" ng-if="!auth.isLoading">Log In</md-button>
         <md-progress-circular md-mode="indeterminate" md-diameter="24" ng-if="auth.isLoading"></md-progress-circular>
       </form>
     </md-card-content>

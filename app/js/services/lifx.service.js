@@ -14,17 +14,23 @@ function LifxService($http, ApiService, ENDPOINT_URI) {
 
   ////////////////
 
-  //var apiKey = ApiService.getKey();
+  function init() {
+    ApiService.getKey(function(key) {
+      console.log(key);
+      $http.defaults.headers.common.Authorization = 'Bearer ' + key;
+    });
+  }
+
   function getLights(selector) {
+    init();
     selector = typeof selector !== 'undefined' ? selector : 'all';
     $http.get(ENDPOINT_URI + '/lights/' + selector);
   }
 
   function toggleLights(selector) {
-    var apiKey = '';
-    $http.defaults.headers.common.Authorization = 'Bearer ' + apiKey;
+    init();
     selector = typeof selector !== 'undefined' ? selector : 'all';
-    $http.post(ENDPOINT_URI + '/lights/' + selector + '/toggle');
+    $http.post(ENDPOINT_URI + '/lights/' + selector + '/toggle', null);
   }
 
 }

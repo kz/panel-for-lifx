@@ -2,10 +2,10 @@ angular
   .module('app')
   .controller('IndexController', IndexController);
 
-IndexController.$inject = ['$window', '$scope', '$state', 'ApiService', '$log'];
+IndexController.$inject = ['$window', '$scope', '$state', 'ApiService'];
 
 /* @ngInject */
-function IndexController($window, $scope, $state, ApiService, $log) {
+function IndexController($window, $scope, $state, ApiService) {
   /* jshint validthis: true */
   var vm = this;
 
