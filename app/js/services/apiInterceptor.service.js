@@ -5,10 +5,9 @@ angular
     $httpProvider.interceptors.push('ApiInterceptor');
   }]);
 
-ApiInterceptor.$inject = [''];
+ApiInterceptor.$inject = ['ApiService'];
 
-/* @ngInject */
-function ApiInterceptor() {
+function ApiInterceptor(ApiService) {
   var request = function request(config) {
     ApiService.getKey().then(function (key) {
       console.log(key);
