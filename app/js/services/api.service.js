@@ -2,10 +2,10 @@ angular
   .module('app')
   .factory('ApiService', ApiService);
 
-ApiService.$inject = [];
+ApiService.$inject = ['$q'];
 
 /* @ngInject */
-function ApiService() {
+function ApiService($q) {
   var service = {
     setKey: setKey,
     getKey: getKey,
@@ -23,15 +23,20 @@ function ApiService() {
   }
 
   function getKey() {
+    var deferred = $q.defer();
     chrome.storage.local.get('apiKey', function (apiKey) {
-      return apiKey;
+      deferred.resolve(apiKey);
     });
+    return deferred.promise;
+
   }
 
   function isSet() {
-    chrome.storage.local.get('apiKey', function () {
-      return apiKey !== null;
+    var deferred = $q.defer();
+    chrome.storage.local.get('apiKey', function (apiKey) {
+      deferred.resolve(apiKey !== null);
     });
+    return deferred.promise;
   }
 
 
