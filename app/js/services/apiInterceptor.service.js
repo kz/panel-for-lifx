@@ -9,10 +9,13 @@ ApiInterceptor.$inject = ['ApiService'];
 
 function ApiInterceptor(ApiService) {
   var request = function request(config) {
-    ApiService.getKey().then(function (key) {
-      console.log(key);
-      config.headers['Authorization'] = 'Bearer ' + key;
-    });
+    if (config.url.includes('api.lifx')) {
+      ApiService.getKey().then(function (key) {
+        console.log(config.url);
+        console.log('Intercept ' + key);
+        config.headers['Authorization'] = 'Bearer ' + key;
+      });
+    }
     return config;
   };
 

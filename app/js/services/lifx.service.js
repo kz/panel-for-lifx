@@ -3,10 +3,10 @@ angular
   .constant('ENDPOINT_URI', 'https://api.lifx.com/v1beta1')
   .factory('LifxService', LifxService);
 
-LifxService.$inject = ['$http', 'ApiService', 'ENDPOINT_URI'];
+LifxService.$inject = ['$http', 'ENDPOINT_URI'];
 
 /* @ngInject */
-function LifxService($http, ApiService, ENDPOINT_URI) {
+function LifxService($http, ENDPOINT_URI) {
   return {
     getLights: getLights,
     toggleLights: toggleLights

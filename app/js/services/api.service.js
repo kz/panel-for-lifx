@@ -25,7 +25,7 @@ function ApiService($q) {
   function getKey() {
     var deferred = $q.defer();
     chrome.storage.local.get('apiKey', function (apiKey) {
-      deferred.resolve(apiKey);
+      deferred.resolve(apiKey['apiKey']);
     });
     return deferred.promise;
 
@@ -34,7 +34,7 @@ function ApiService($q) {
   function isSet() {
     var deferred = $q.defer();
     chrome.storage.local.get('apiKey', function (apiKey) {
-      deferred.resolve(apiKey !== null);
+      deferred.resolve(apiKey['apiKey'] !== undefined);
     });
     return deferred.promise;
   }

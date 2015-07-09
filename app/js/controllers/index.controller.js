@@ -2,10 +2,10 @@ angular
   .module('app')
   .controller('IndexController', IndexController);
 
-IndexController.$inject = ['$window', '$scope', '$state', 'ApiService'];
+IndexController.$inject = ['$scope', '$state', 'ApiService'];
 
 /* @ngInject */
-function IndexController($window, $scope, $state, ApiService) {
+function IndexController($scope, $state, ApiService) {
   /* jshint validthis: true */
   var vm = this;
 
@@ -16,9 +16,14 @@ function IndexController($window, $scope, $state, ApiService) {
   ////////////////
 
   function authCheck() {
-    if (!ApiService.isSet()) {
-      $state.go('auth');
-    }
+    ApiService.isSet().then(function (isSet) {
+      console.log(isSet);
+      if (!isSet) {
+        $state.go('auth');
+      } else {
+        $state.go('dashboard');
+      }
+    });
   }
 
 }

@@ -10,5 +10,6 @@
   },
   "permissions": [
     "storage"
-  ]
+  ],
+  "minimum_chrome_version": "41.0.2272"
 }
